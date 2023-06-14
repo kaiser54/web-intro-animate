@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: #000; /* Set initial background color to black */
+      }
+
+      .loader {
+        width: 100vw;
+        height: 100vh;
+      }
+
+      .loader-clip {
+        position: absolute;
+        width: 100vw;
+        height: 33.3vh;
+        overflow: clip;
+        z-index: 10000;
+      }
+
+      .clip-top {
+        top: 0;
+        clip-path: inset(0 0 0 0);
+        background: #000;
+      }
+
+      .clip-bottom {
+        bottom: 0;
+        clip-path: inset(0 0 0 0);
+        background: #000;
+      }
+
+      .clip-center {
+        overflow: hidden;
+        position: relative;
+        width: 100vw;
+        height: 33.3vh;
+        top: 33.3vh;
+      }
+
+      .marquee {
+        position: absolute;
+        top: 200%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 200vw;
+        color: white;
+        mix-blend-mode: difference;
+        font-size: 16vw;
+      }
+
+      .marquee-container {
+        width: 100%;
+        padding-top: 0.2em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .container {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        z-index: 1;
+        text-transform: uppercase;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        font-size: 14px;
+      }
+
+      .container .nav,
+      .container .footer {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+        padding: 2em 4em;
+      }
+
+      .nav-items a {
+        text-decoration: none;
+        color: black;
+      }
+
+      .nav-items a:not(:last-child) {
+        padding-right: 4em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loader">
+      <div class="loader-clip clip-top">
+        <div class="marquee">
+          <div class="marquee-container">
+            <span>Kaiser</span>
+            <span>Kaiser</span>
+            kaiser
+            <span>Kaiser</span>
+            <span>Kaiser</span>
+          </div>
+        </div>
+      </div>
+      <div class="loader-clip clip-bottom">
+        <div class="marquee">
+          <div class="marquee-container">
+            <span>Kaiser</span>
+            <span>Kaiser</span>
+            kaiser
+            <span>Kaiser</span>
+            <span>Kaiser</span>
+          </div>
+        </div>
+      </div>
+      <div class="clip-center">
+        <div class="marquee">
+          <div class="marquee-container">
+            <span>Kaiser</span>
+            <span>Kaiser</span>
+            kaiser
+            <span>Kaiser</span>
+            <span>Kaiser</span>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="nav">
+          <div class="logo">Brand</div>
+          <div class="nav-items">
+            <a href="#">Design</a>
+            <a href="#">Merch</a>
+            <a href="#">Info</a>
+          </div>
+        </div>
+        <div class="footer">
+          <p>Play film</p>
+          <p>High quality video production <br />Made in Nigeria</p>
+          <p>kaiser 2022</p>
+        </div>
+      </div>
+    </div>
+    <script>
+      gsap.from(".clip-top, .clip-bottom", 2, {
+        delay: 1,
+        top: "50vh",
+        ease: "power4.inOut",
+      });
+
+      gsap.to(".marquee", 3.5, {
+        delay: 0.75,
+        top: "50%",
+        ease: "power4.inOut",
+      });
+
+      gsap.from(".clip-top .marquee, .clip-bottom .marquee", 5, {
+        delay: 1,
+        left: "100%",
+        ease: "power3.inOut",
+      });
+
+      gsap.from(".clip-center .marquee", 5, {
+        delay: 1,
+        left: "-50%",
+        background: "#fff",
+        ease: "power3.inOut",
+      });
+
+      gsap.to("body", 2, {
+        delay: 6,
+        background: "#fff" /* Change background color to white */,
+        ease: "power4.inOut",
+        onComplete: function () {
+          console.log("GSAP animation is complete!");
+        },
+      });
+
+      gsap.to(".clip-top", 2, {
+        delay: 6,
+        clipPath: "inset(0 0 100% 0)",
+        ease: "power4.inOut",
+      });
+
+      gsap.to(".clip-bottom", 2, {
+        delay: 6,
+        clipPath: "inset(100% 0 0 0)",
+        ease: "power4.inOut",
+      });
+
+      gsap.to(".clip-center .marquee", 5, {
+        delay: 1,
+        background: "#fff",
+        color: "black",
+        ease: "power4.inOut",
+      });
+
+      gsap.to(".clip-center", 5, {
+        delay: 1,
+        background: "#000",
+        color: "black",
+        ease: "power4.inOut",
+      });
+
+      gsap.to(
+        ".clip-top .marquee, .clip-bottom .marquee, .clip-center .marquee span",
+        1,
+        {
+          delay: 6,
+          opacity: "0",
+          ease: "power2.inOut",
+        }
+      );
+    </script>
+  </body>
+</html>
