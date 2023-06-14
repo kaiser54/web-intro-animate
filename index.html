@@ -5,7 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <style>
       * {
         margin: 0;
@@ -17,6 +21,8 @@
       body {
         margin: 0;
         padding: 0;
+        font-family: 'Roboto', sans-serif;
+        text-transform: uppercase;
         background: #000; /* Set initial background color to black */
       }
 
@@ -58,6 +64,7 @@
         top: 200%;
         left: 50%;
         transform: translate(-50%, -50%);
+        transform: translate(-81%, -50%);
         width: 200vw;
         color: white;
         mix-blend-mode: difference;
@@ -110,33 +117,33 @@
       <div class="loader-clip clip-top">
         <div class="marquee">
           <div class="marquee-container">
-            <span>Kaiser</span>
-            <span>Kaiser</span>
-            kaiser
-            <span>Kaiser</span>
-            <span>Kaiser</span>
+            <span>Kaiser®</span>
+            <span>Kaiser®</span>
+            kaiser®
+            <span>Kaiser®</span>
+            <span>Kaiser®</span>
           </div>
         </div>
       </div>
       <div class="loader-clip clip-bottom">
         <div class="marquee">
           <div class="marquee-container">
-            <span>Kaiser</span>
-            <span>Kaiser</span>
-            kaiser
-            <span>Kaiser</span>
-            <span>Kaiser</span>
+            <span>Kaiser®</span>
+            <span>Kaiser®</span>
+            kaiser®
+            <span>Kaiser®</span>
+            <span>Kaiser®</span>
           </div>
         </div>
       </div>
       <div class="clip-center">
         <div class="marquee">
           <div class="marquee-container">
-            <span>Kaiser</span>
-            <span>Kaiser</span>
-            kaiser
-            <span>Kaiser</span>
-            <span>Kaiser</span>
+            <span>Kaiser®</span>
+            <span>Kaiser®</span>
+            kaiser®
+            <span>Kaiser®</span>
+            <span>Kaiser®</span>
           </div>
         </div>
       </div>
@@ -152,7 +159,7 @@
         <div class="footer">
           <p>Play film</p>
           <p>High quality video production <br />Made in Nigeria</p>
-          <p>kaiser 2022</p>
+          <p>kaiser® 2022</p>
         </div>
       </div>
     </div>
@@ -202,6 +209,14 @@
         clipPath: "inset(100% 0 0 0)",
         ease: "power4.inOut",
       });
+
+      // gsap.to(".clip-center .marquee", 1, {
+      //   delay: 9,
+      //   // background: "#000",
+      //   color: "#fff",
+      //   ease: "power4.inOut",
+      // });
+
       gsap.to(".clip-center", 5, {
         delay: 0,
         background: "#fff",
